@@ -1,0 +1,148 @@
+7 A.  A basic example of a C program for an ARM microcontroller using Keil to implement bubble sort to sort numbers in ascending order. This assumes you have a basic understanding of ARM assembly and how to set up the environment in Keil.
+#include <stdint.h>
+// Function prototypes
+void bubbleSort(uint32_t *array, uint32_t n);
+int main(void) {
+    // Array to be sorted
+    uint32_t numbers[] = { 5, 1, 4, 2, 8 };
+    uint32_t n = sizeof(numbers) / sizeof(numbers[0]);
+    // Call bubble sort to sort the array
+    bubbleSort(numbers, n);
+    // After sorting, print the sorted array
+    for (uint32_t i = 0; i < n; i++) {
+        // Print each number
+        // You need to implement a function to output numbers in ARM assembly
+        // or use a debugger to view the sorted array
+    }
+    while (1); // Infinite loop to keep the program running
+    return 0;
+}
+// Bubble sort implementation
+void bubbleSort(uint32_t *array, uint32_t n) {
+    uint32_t i, j;
+    for (i = 0; i < n-1; i++) {
+        
+// Last i elements are already in place
+        for (j = 0; j < n-i-1; j++) {
+            if (array[j] > array[j+1]) {
+                // Swap array[j] and array[j+1]
+                uint32_t temp = array[j];
+                array[j] = array[j+1];
+                array[j+1] = temp;
+            }
+        }
+    }
+}
+
+7 B. Sorting numbers in descending order using bubble sort on an ARM microcontroller using Keil involves implementing the bubble sort algorithm in C, taking into account the specifics of ARM architecture. Below is a sample program that demonstrates this
+
+#include <stdint.h>
+// Function prototypes
+void bubbleSort(uint32_t *array, uint32_t n);
+int main(void) {
+    // Array to be sorted
+    uint32_t numbers[] = { 5, 1, 4, 2, 8 };
+    uint32_t n = sizeof(numbers) / sizeof(numbers[0]);
+    // Call bubble sort to sort the array in descending order
+    bubbleSort(numbers, n);
+
+    // After sorting, print the sorted array
+    for (uint32_t i = 0; i < n; i++) {
+        // Print each number (you may implement your own function for output)
+    }
+
+    while (1); // Infinite loop to keep the program running
+
+    return 0;
+}
+
+// Bubble sort implementation for descending order
+void bubbleSort(uint32_t *array, uint32_t n) {
+    uint32_t i, j;
+    for (i = 0; i < n-1; i++) {
+        for (j = 0; j < n-i-1; j++) {
+            if (array[j] < array[j+1]) {
+                // Swap array[j] and array[j+1] for descending order
+                uint32_t temp = array[j];
+                array[j] = array[j+1];
+                array[j+1] = temp;
+            }
+        }
+    }
+}
+
+8. C program for ARM microcontroller using keil to find factorial of a number
+#include <stdint.h>
+
+// Function prototype
+uint32_t factorial(uint32_t n);
+
+int main(void) {
+    // Number for which factorial is to be calculated
+    uint32_t num = 5;  // Example: calculating factorial of 5
+
+    // Calculate factorial
+    uint32_t result = factorial(num);
+
+    // Output the result (you may implement your own function for output)
+    // For example, using a UART output function in ARM assembly or Keil-specific functions
+    // to display the result on a debug interface.
+
+    while (1); // Infinite loop to keep the program running
+
+    return 0;
+}
+
+// Function to calculate factorial of a number
+uint32_t factorial(uint32_t n) {
+    if (n == 0 || n == 1)
+        return 1;
+    else
+        return n * factorial(n - 1);
+}
+
+9. C program for ARM microcontroller using keil to demonstrate case conversion of characters from uppercase to lowercase and lower to uppercase.
+
+
+#include <stdint.h>
+
+// Function prototypes
+char toLower(char ch);
+char toUpper(char ch);
+
+int main(void) {
+    // Example character conversions
+    char uppercaseChar = 'A';
+    char lowercaseChar = 'b';
+
+    // Convert uppercase to lowercase
+    char convertedLower = toLower(uppercaseChar);
+    
+    // Convert lowercase to uppercase
+    char convertedUpper = toUpper(lowercaseChar);
+
+    // Output the converted characters (you may implement your own function for output)
+    // For example, using a UART output function in ARM assembly or Keil-specific functions
+    // to display the result on a debug interface.
+
+    while (1); // Infinite loop to keep the program running
+
+    return 0;
+}
+
+// Function to convert character from uppercase to lowercase
+char toLower(char ch) {
+    if (ch >= 'A' && ch <= 'Z') {
+        return ch + ('a' - 'A');
+    } else {
+        return ch; // Return the character as is if not uppercase
+    }
+}
+
+// Function to convert character from lowercase to uppercase
+char toUpper(char ch) {
+    if (ch >= 'a' && ch <= 'z') {
+        return ch - ('a' - 'A');
+    } else {
+        return ch; // Return the character as is if not lowercase
+    }
